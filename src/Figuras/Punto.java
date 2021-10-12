@@ -34,13 +34,10 @@ public class Punto {
     public double distancia(Punto pp) {
         return Math.sqrt(Math.pow(x - pp.x, 2) + Math.pow(y - pp.y, 2));
     }
-
-    public static double distancia2(Punto a, Punto b) {
-        return Math.sqrt(Math.pow(a.x - b.x, 2) + Math.pow(a.y - b.y, 2));
-    }
     
+    @Override
     public String toString(){
-        return ""+ this.getX() + "  " + this.getY();
+        return ""+ this.getX() + "  " + this.getY() + "\n";
     }
 
 }
