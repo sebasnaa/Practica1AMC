@@ -5,10 +5,10 @@
  */
 package principal;
 
-
 import static principal.Algoritmos.*;
 import Figuras.Punto;
 import Figuras.Triangulo;
+import java.awt.BorderLayout;
 import java.io.IOException;
 
 /**
@@ -23,25 +23,33 @@ public class main {
      */
     public static void main(String[] args) throws IOException {
 
-        int n = 1000;
+        int n = 5;
         int minimo = 1;
-        int maximo = 10000;
+        int maximo = 10;
+
         Punto puntos[] = new Punto[n];
+
+        for (int i = 0; i < n; i++) {
+            puntos[i] = new Punto(  Math.random() * ((maximo - minimo)+1) + minimo , Math.random() * ((maximo - minimo)+1) + minimo);
+        }
 
         //puntos = TSP.lecturaTSP("datos/berlin52.tsp");
         //puntos = TSP.lecturaTSP("datos/ch150.tsp");
         //puntos = TSP.lecturaTSP("datos/d493.tsp");
         
-        for(int i = 0;i<n;i++){
-            puntos[i] = new Punto(  Math.random() * ((maximo - minimo)+1) + minimo , Math.random() * ((maximo - minimo)+1) + minimo);
-        }
+        Triangulo aa = DyV(puntos);
+        
+        System.out.println(aa);
+        
+        
 
-        Triangulo a = busquedaExhaustiva(puntos);
-        Punto puntoComun = a.minimaDistanciaPuntoComun();
-
-        System.out.println(a);
-        System.out.println(puntoComun);
-
+        //ordenarQuick(puntos);
+//        for ( Punto p : puntos){
+//            System.out.println(p);
+//        }
+//        Triangulo a = busquedaExhaustiva(puntos);
+//        System.out.println(a);
+//        Punto puntoComun = a.minimaDistanciaPuntoComun();
     }
 
 }
